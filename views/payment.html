@@ -1,0 +1,131 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Collié</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css" integrity="" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/payment.css">
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js" integrity="" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+        <div class="modal fade" id="shoppingCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">Shopping Cart</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body" id="cartBody">
+                          
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Continue to checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-light bg-light sticky-top">
+              <div>
+                  <ul class="navbar-nav ml-auto">
+                      <a class="nav-link" href="/">Avaleht</a>
+                      <a class="nav-link" href="/shop">Pood</a>
+                      <a class="nav-link" href="/about">Meist</a>
+                      
+                  </ul>
+              </div>
+              <div class="navbar-nav ml-auto mr-auto">
+                  <a href="/" class="navbar-brand">
+                      <img src="/images/logo.png">
+                      <span id="brandname" class="navbar-brand"><h1>Collié</h1></span>
+                  </a>
+              </div>
+              <button style="padding-top:2vh;" type="button" class="btn" data-toggle="modal" data-target="#shoppingCart">
+                  <img id="cartLogo" src="">
+              </button>
+          </nav>
+    
+      <main class="page payment-page">
+        <section class="payment-form dark">
+            <div class="block-heading">
+              <h2>Payment</h2>
+            </div>
+            <form>
+              <div class="products" id="paymentForm"></div>
+              <div class="card-details">
+                <h3 class="title">Credit Card Details</h3>
+                <div class="row">
+                  <div class="form-group col-sm-7">
+                    <label for="card-holder">Card Holder</label>
+                    <input id="card-holder" type="text" class="form-control" placeholder="Card Holder" aria-label="Card Holder" aria-describedby="basic-addon1">
+                  </div>
+                  <div class="form-group col-sm-5">
+                    <label for="">Expiration Date</label>
+                    <div class="input-group expiration-date">
+                      <input type="text" class="form-control" placeholder="MM" aria-label="MM" aria-describedby="basic-addon1">
+                      <span class="date-separator">/</span>
+                      <input type="text" class="form-control" placeholder="YY" aria-label="YY" aria-describedby="basic-addon1">
+                    </div>
+                  </div>
+                  <div class="form-group col-sm-8">
+                    <label for="card-number">Card Number</label>
+                    <input id="card-number" type="text" class="form-control" placeholder="Card Number" aria-label="Card Holder" aria-describedby="basic-addon1">
+                  </div>
+                  <div class="form-group col-sm-4">
+                    <label for="cvc">CVC</label>
+                    <input id="cvc" type="text" class="form-control" placeholder="CVC" aria-label="Card Holder" aria-describedby="basic-addon1">
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <button type="button" class="btn btn-primary btn-block">Proceed</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+        </section>
+      </main>
+        <footer>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 social">
+                    <a href="https://www.facebook.com/villem.susi" class="fa fa-facebook"></a>
+                    <a href="https://www.instagram.com/maamehepaismais/" class="fa fa-instagram"></a>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </footer>
+        
+    
+
+<script>
+function removeItem(e) {
+    e.parentNode.parentNode.removeChild(e.parentNode);
+    localStorage.removeItem(e.parentNode.id);
+}
+$(document).ready(function() {
+  let paymentForm = "";
+  let target = document.getElementById("paymentForm");
+  console.log(target);
+  target.innerHTML += '<h3 class="title">Checkout</h3>';
+  let sum = 0;
+  for (let elem = 0; elem < localStorage.length; elem++) {
+    target.innerHTML += '<div class="item"><span class="price">'+JSON.parse(localStorage.getItem(localStorage.key(elem)))["price"]+'</span><p class="item-name">'+JSON.parse(localStorage.getItem(localStorage.key(elem)))["name"]+'</p></div>'
+    sum += parseInt(JSON.parse(localStorage.getItem(localStorage.key(elem)))["price"]);
+  }
+  target.innerHTML += '<div class="total">Total<span class="price">'+String(sum)+'$</span></div>';
+})
+
+</script>
+</body>
+</html>

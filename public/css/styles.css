@@ -1,0 +1,140 @@
+#brandname {
+    padding-right: 50px;
+    vertical-align: middle;
+}
+
+
+.container, .container-fluid {
+    height: 90vh;
+}
+.container::before, .container-fluid::before {
+    height:10vh;
+    content: "";
+    display: block;
+}
+
+.container::after, .container-fluid::after {
+    height:15vh;
+    content: "";
+    display: block;
+}
+
+/* body {
+    overflow: hidden;
+} */
+
+nav {
+    height: 10vh;
+}
+
+#carousel {
+    width: 50vw;
+    margin:auto;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 20px;
+    width: 60px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }  
+  
+  
+  /* Facebook */
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  .fa-facebook:hover {
+    color: white;
+  }
+  
+  /* Twitter */
+  .fa-instagram {
+    background: #ff3650;
+    color: white;
+  }
+
+  a {
+      cursor:pointer;
+  }
+
+  .caption {
+      text-align: center;
+  }
+
+  .thumbnail {
+    text-align:center;
+  }
+
+  .thumbnail img {
+      max-height: 150px;
+  }
+  
+  .thumbnail .description {
+      color: #7f7f7f;
+      font-size: 12px;
+  }
+
+  .price {
+      font-weight: bold;
+      font-size: 16px;
+  }
+
+  .social {
+      text-align: center;
+      vertical-align: bottom;
+  }
+
+  footer {
+    height: 80px; 
+    width:100%;
+    position: fixed;
+    left: 0;
+    bottom: 0; 
+    }
+
+    img {
+        margin:10px;
+    }
+
+    #selectStyle {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 60vh;
+        padding-right: 20px;
+    }
+
+    #displayStyle {
+        width: 40%;
+    }
+
+    #displayStyleImg {
+        width:100%;
+    }
+
+    #selectStyle::-webkit-scrollbar
+    {
+        display:none;
+    }
+    
+
+    #cartLogo {
+        width: 5vh;
+    }
+
+    .navbar-nav li a {
+        line-height: 10vh;
+    }
+
+    .w-100 {
+        height: auto;
+        width: auto;
+    }

@@ -1,0 +1,113 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Collié</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css" integrity="" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js" integrity="" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="modal fade" id="shoppingCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Shopping Cart</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" id="cartBody">
+                
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <a href="/checkout"><button type="button" class="btn btn-primary">Continue to checkout</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <nav class="navbar navbar-light bg-light sticky-top">
+        <div>
+            <ul class="navbar-nav ml-auto">
+                <a class="nav-link active" href="/">Avaleht</a>
+                <a class="nav-link" href="/shop">Pood</a>
+                <a class="nav-link" href="/about">Meist</a>
+                
+            </ul>
+        </div>
+        <div class="navbar-nav ml-auto mr-auto">
+            <a href="/" class="navbar-brand">
+                <img src="/images/logo.png">
+                <span id="brandname" class="navbar-brand"><h1>Collié</h1></span>
+            </a>
+        </div>
+        <button style="padding-top:2vh;" type="button" class="btn" data-toggle="modal" data-target="#shoppingCart">
+            <img id="cartLogo" src="/images/cart.png">
+        </button>
+    </nav>
+
+    <div class="container">
+
+        <div class="row" style="width:100%;">
+            <div class="col-sm-2">
+                <div class="row" id="selectStyle">
+                    <img class="d-block w-100" alt="image" src="/images/altimg1.jpg">
+                    <img class="d-block w-100" alt="image" src="/images/altimg2.jpg">
+                    <img class="d-block w-100" alt="image" src="/images/altimg3.jpg">
+                    <img class="d-block w-100" alt="image" src="/images/altimg4.jpg">
+                    <img class="d-block w-100" alt="image" src="/images/altimg1.jpg">
+                </div>
+            </div>
+            <div class="col-sm-8" id="displayStyle">
+                <img id="displayStyleImg" src="/images/altimg1.jpg">
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+
+        <footer>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 social">
+                    <a href="https://www.facebook.com/villem.susi" class="fa fa-facebook"></a>
+                    <a href="https://www.instagram.com/maamehepaismais/" class="fa fa-instagram"></a>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </footer>
+    </div>
+
+
+
+
+
+
+
+
+<script>
+$(document).ready(function () {
+    $('#selectStyle img').click(function () {
+        var src = $(this).attr('src');
+        $('#displayStyleImg').attr('src', src);
+    });
+});  
+function removeItem(e) {
+    e.parentNode.parentNode.removeChild(e.parentNode);
+}
+$("#selectStyle").height($("#displayStyleImg").height());
+
+
+
+</script>
+</body>
+</html>

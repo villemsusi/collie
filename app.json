@@ -1,0 +1,11 @@
+{
+  "apps": [{
+    "name": "collie",
+    "script": "./collie/app.js",
+    "cwd": "./collie",
+    "watch": true,
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }]
+}
