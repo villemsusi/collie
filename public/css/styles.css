@@ -91,6 +91,8 @@ nav {
   .social {
       text-align: center;
       vertical-align: bottom;
+      float: right;
+      padding-right: 3%;
   }
 
   footer {
