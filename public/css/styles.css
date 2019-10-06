@@ -140,3 +140,21 @@ nav {
         height: auto;
         width: auto;
     }
+
+    .navbar {
+        background-color: white;
+    }
+
+    ul {
+        width:30vw;
+    }
+
+    #cartBtnArea {
+        width:30vw;
+        text-align:right;
+    }
+
+    #logoArea a img {
+        display:block;
+        margin:auto;
+    }

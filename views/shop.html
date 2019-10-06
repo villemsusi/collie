@@ -11,24 +11,23 @@
   <link rel="stylesheet" href="css/styles.css">
 
   <script src="js/jquery.min.js"></script>
+  <script src="js/site.js"></script>
   <script src="js/bootstrap.min.js" integrity="" crossorigin="anonymous"></script>
   
 
 </head>
 
 <body>
-        <div class="modal fade" id="shoppingCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal fade" id="shoppingCart" tabindex="-1" role="dialog" aria-labelledby="cartModal" aria-hidden="true">
+                <div class="modal-dialog modal-full-height modal-right" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle">Shopping Cart</h5>
+                          <h5 class="modal-title">Shopping Cart</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                        <div class="modal-body" id="cartBody">
-                        
-                        </div>
+                        <div class="modal-body" id="cartBody"></div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                           <a href="/checkout"><button type="button" class="btn btn-primary">Continue to checkout</button></a>
@@ -36,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="itemAdded" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal fade" id="itemAdded" tabindex="-1" role="dialog" aria-labelledby="cartModal" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -52,24 +51,22 @@
 
 
     
-                <nav class="navbar navbar-light sticky-top">
-                    <div>
-                        <ul class="navbar-nav ml-auto">
-                            <a class="nav-link" href="/">Avaleht</a>
-                            <a class="nav-link active" href="/shop">Pood</a>
-                            <a class="nav-link" href="/about">Meist</a>
-                            
-                        </ul>
-                    </div>
-                    <div class="navbar-nav ml-auto mr-auto">
-                        <a href="/" class="navbar-brand">
-                            <img src="/images/logo.png">
-                            <!-- <span id="brandname" class="navbar-brand"><h1>Collié</h1></span> -->
+                <nav class="navbar navbar-expand-md navbar-light sticky-top">
+                    <ul class="navbar-nav">
+                        <a class="nav-link" href="/">Avaleht</a>
+                        <a class="nav-link active" href="/shop">Pood</a>
+                        <a class="nav-link" href="/about">Meist</a>
+                    </ul>   
+                    <div id="logoArea" class="navbar-nav ml-auto">
+                        <a href="/" class="navbar-brand ml-auto">
+                            <img src="/images/logo.png" width="20%">
                         </a>
                     </div>
-                    <button style="padding-top:2vh;" type="button" class="btn" data-toggle="modal" data-target="#shoppingCart">
-                        <img id="cartLogo" src="/images/cart.png">
-                    </button>
+                    <div id="cartBtnArea">
+                        <button style="padding-top:2vh;" type="button" class="btn" onclick="openCart()" data-target="#shoppingCart">
+                            <img id="cartLogo" src="/images/cart.png">
+                        </button>
+                    </div>
                 </nav>
 
     <div class="container">
@@ -81,7 +78,7 @@
                         <h4 id="name">Item1</h4>
                         <div class="clearfix">
                             <div class="price">11$</div>
-                            <a href="#" class="btn btn-success addCart" id="item1" role="button" data-toggle='modal' data-target='#itemAdded'>Add to cart</a>
+                            <a href="#" class="btn btn-success addCart" id="item1" role="button" onclick="send(this)">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -93,7 +90,7 @@
                         <h4 id="name">Item2</h4>
                         <div class="clearfix">
                             <div class="price">12$</div>
-                            <a href="#" class="btn btn-success addCart" id="item2" role="button" data-toggle='modal' data-target='#itemAdded'>Add to cart</a>
+                            <a href="#" class="btn btn-success addCart" id="item2" role="button" onclick="send(this)">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -107,7 +104,7 @@
                         <h4 id="name">Thumbnail label</h4>
                         <div class="clearfix">
                             <div class="price">12$</div>
-                            <a href="#" class="btn btn-success addCart" id="item3" role="button" data-toggle='modal' data-target='#itemAdded'>Add to cart</a>
+                            <a href="#" class="btn btn-success addCart" id="item3" role="button" onclick="send(this)">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -119,7 +116,7 @@
                         <h4 id="name">Thumbnail label</h4>
                         <div class="clearfix">
                             <div class="price">12$</div>
-                            <a href="#" class="btn btn-success addCart" id="item4" role="button" data-toggle='modal' data-target='#itemAdded'>Add to cart</a>
+                            <a href="#" class="btn btn-success addCart" id="item4" role="button" onclick="send(this)">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -133,7 +130,7 @@
                         <h4 id="name">Thumbnail label</h4>
                         <div class="clearfix">
                             <div class="price">12$</div>
-                            <a href="#" class="btn btn-success addCart" id="item5" role="button" data-toggle='modal' data-target='#itemAdded'>Add to cart</a>
+                            <a href="#" class="btn btn-success addCart" id="item5" role="button" onclick="send(this)">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -145,7 +142,7 @@
                         <h4 id="name">Thumbnail label</h4>
                         <div class="clearfix">
                             <div class="price">12$</div>
-                            <a href="#" class="btn btn-success addCart" id="item6" role="button" data-toggle='modal' data-target='#itemAdded'>Add to cart</a>
+                            <a href="#" class="btn btn-success addCart" id="item6" role="button" onclick="send(this)">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -160,24 +157,6 @@
     </div>
 
 <script>
-
-function removeItem(e) {
-    e.parentNode.parentNode.removeChild(e.parentNode);
-    localStorage.removeItem(e.parentNode.id);
-}
-
-$(".addCart").click(function(e) {
-    e.preventDefault();
-    var id = $(this).attr("id");
-    var name = this.parentNode.parentNode.childNodes[1].innerHTML;
-    var price = this.parentNode.childNodes[1].innerHTML;
-    var item = { 'name': name, 'price': price, 'id': id};
-    console.log(item);
-    localStorage.setItem(id, JSON.stringify(item));
-    if( $("#cartBody").has("#"+id).length == false ) {
-        document.getElementById("cartBody").innerHTML += "<div class='text-center' id='"+id+"'><img style='height:100px;' src='" + document.getElementsByClassName(id)[0].src +"'><p class='font-weight-bold'>"+name+" - "+price+"</p><button type='button' onclick='removeItem(this)' class='btn btn-danger " + id + "'>Remove</button></div><div class='dropdown-divider'></div>";
-    }
-})
 $(document).ready(function() {
     let items = [];
     for (var i in localStorage) {
@@ -190,10 +169,44 @@ $(document).ready(function() {
         let id = JSON.parse(localStorage.getItem(items[i]))["id"];
         let name = JSON.parse(localStorage.getItem(items[i]))["name"];
         let price = JSON.parse(localStorage.getItem(items[i]))["price"];
-        document.getElementById("cartBody").innerHTML += "<div class='text-center' id='"+id+"'><img style='height:100px;' src='" + document.getElementsByClassName(id)[0].src +"'><p class='font-weight-bold'>"+name+" - "+price+"</p><button type='button' onclick='removeItem(this)' class='btn btn-danger " + id + "'>Remove</button></div><div class='dropdown-divider'></div>";
+        document.getElementById("cartBody").innerHTML += "<div class='text-center' id='"+id+"'><img style='height:100px;' src='" + document.getElementsByClassName(id)[0].src +"'><p class='font-weight-bold'>"+name+" - "+price+"</p><button type='button' onclick='removeItem(this)' class='btn btn-danger " + id + "'>Remove</button></div>";
     }
     
+    let btn = document.getElementsByClassName("addCart");
+    for (let i = 0; i < btn.length; i++) {
+        if (localStorage.getItem(btn[i].id)) {
+            btn[i].innerHTML = "In Cart";
+            btn[i].classList.remove("btn-success");
+            btn[i].classList.add("btn-default");    
+        }
+    }
 });
+
+$(".addCart").click(function(e) {
+    e.preventDefault();
+    var id = $(this).attr("id");
+    var name = this.parentNode.parentNode.childNodes[1].innerHTML;
+    var price = this.parentNode.childNodes[1].innerHTML;
+    var item = { 'name': name, 'price': price, 'id': id};
+    console.log(item);
+    localStorage.setItem(id, JSON.stringify(item));
+    if( $("#cartBody").has("#"+id).length == false ) {
+        document.getElementById("cartBody").innerHTML += "<div class='text-center' id='"+id+"'><img style='height:100px;' src='" + document.getElementsByClassName(id)[0].src +"'><p class='font-weight-bold'>"+name+" - "+price+"</p><button type='button' onclick='removeItem(this)' class='btn btn-danger " + id + "'>Remove</button></div><div class='dropdown-divider'></div>";
+        $("#itemAdded").modal("show");
+        e.target.innerHTML = "In Cart";
+        e.target.classList.remove("btn-success");
+        e.target.classList.add("btn-default");    
+    }
+}); 
+
+function openCart() {
+    let body = document.getElementById("cartBody").innerHTML;
+    if (body == "") {
+        console.log("Body exists");
+    } else {
+        $("#shoppingCart").modal("show");
+    }
+};
 
 </script>
 </body>

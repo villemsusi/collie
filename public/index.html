@@ -11,12 +11,13 @@
   <link rel="stylesheet" href="css/styles.css">
 
   <script src="js/jquery.min.js"></script>
+  <script src="js/site.js"></script>
   <script src="js/bootstrap.min.js" integrity="" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-    <div class="modal fade" id="shoppingCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="shoppingCart" tabindex="-1" role="dialog" aria-labelledby="cartModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -37,29 +38,24 @@
     </div>
 
     
-    <nav class="navbar navbar-light sticky-top">
-        <div>
-            <ul class="navbar-nav ml-auto">
-                <a class="nav-link active" href="/">Avaleht</a>
-                <a class="nav-link" href="/shop">Pood</a>
-                <a class="nav-link" href="/about">Meist</a>
-                
-            </ul>
-        </div>
-        <div class="navbar-nav ml-auto mr-auto">
-            <a href="/" class="navbar-brand">
-                <img src="/images/logo.png">
-                <!-- <span id="brandname" class="navbar-brand"><h1>Collié</h1></span> -->
+    <nav class="navbar navbar-expand-md navbar-light sticky-top">
+        <ul class="navbar-nav">
+            <a class="nav-link active" href="/">Avaleht</a>
+            <a class="nav-link" href="/shop">Pood</a>
+            <a class="nav-link" href="/about">Meist</a>
+        </ul>   
+        <div id="logoArea" class="navbar-nav ml-auto">
+            <a href="/" class="navbar-brand ml-auto">
+                <img src="/images/logo.png" width="20%">
             </a>
         </div>
-        <button style="padding-top:2vh;" type="button" class="btn" data-toggle="modal" data-target="#shoppingCart">
-            <img id="cartLogo" src="/images/cart.png">
-        </button>
+        <button id="cartBtnArea" style="padding-top:2vh;" type="button" class="btn" data-toggle="modal" data-target="#shoppingCart"></button>
     </nav>
 
     <div class="container">
 
         <div class="row" style="width:100%;">
+            <div class="col-sm-1"></div>
             <div class="col-sm-2">
                 <div class="row" id="selectStyle">
                     <img class="d-block w-100" alt="image" src="/images/hor1.jpeg">
@@ -75,7 +71,7 @@
             <div class="col-sm-8" id="displayStyle">
                 <img id="displayStyleImg" src="/images/hor1.jpeg">
             </div>
-            <div class="col-sm-2"></div>
+            <div class="col-sm-1"></div>
         </div>
 
         <footer>
@@ -100,9 +96,7 @@ $(document).ready(function () {
         $('#displayStyleImg').attr('src', src);
     });
 });  
-function removeItem(e) {
-    e.parentNode.parentNode.removeChild(e.parentNode);
-}
+
 $("#selectStyle").height($("#displayStyleImg").height());
 
 
