@@ -158,3 +158,17 @@ nav {
         display:block;
         margin:auto;
     }
+    
+    nav {
+        border-bottom: 1px solid lightgray;
+        background-image: linear-gradient(to right, white, #f0f0f0);
+    }
+
+    #collarImg {
+        width: 100vw;
+    }
+
+    #index {
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }

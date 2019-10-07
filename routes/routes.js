@@ -11,6 +11,10 @@ const routes = app => {
     app.get("/about", function (req, res) {
         res.sendFile(path.resolve(__dirname, '../views/about.html'))
     })
+
+    app.get("/gallery", function (req, res) {
+        res.sendFile(path.resolve(__dirname, '../views/gallery.html'))
+    })
     
     app.post("/api/buffer", function (req, res) {
         var data = req.body;
